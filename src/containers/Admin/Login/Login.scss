@@ -1,0 +1,46 @@
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  h1{
+    color: black;
+    font-weight: 500;
+  }
+
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+
+  .checkbox {
+    font-weight: 400;
+  }
+
+  .form-floating:focus-within {
+    z-index: 2;
+  }
+
+  hr { 
+    display: block; 
+    height: 1px;
+    border: 0; 
+    border-top: 4px solid rgb(0, 0, 0);
+    width: 70%;
+    opacity: 1;
+    margin-left: 50px;
+    padding: 0; 
+    animation: grow 2s ease;
+  }
+  
+}
+
+@keyframes grow {
+  0% {width: 0%;}
+
+  100% {width: 70%;}
+  
+}
