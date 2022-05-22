@@ -23,7 +23,10 @@ const Homepage = () => {
     return(
                 <div className="home">
                     <h1>Gauri Blogs</h1><hr />
-                    <h5>Write Something here</h5><br /><br />
+                    <h5>LIFE OF A SEO ENTHUSIAST, CONTENT LOVER!
+                        SPREADING POSITIVE VIBES THROUGH WORDS<br />
+                        If you’re looking for SEO, fashion/grooming, travel and lifestyle tips, then you’re definitely at the right place. 
+                         My belief is that businesses can grow with a conscience and succeed with a soul - and that inbound is the way to do that.</h5><br /><br />
                     <h3>Editor's Pick</h3>
                     <div className="card-wrapper">
                         {
