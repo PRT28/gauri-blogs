@@ -22,7 +22,7 @@ const Homepage = () => {
 
     return(
                 <div className="home">
-                    <h1>Gauri Blogs</h1><hr />
+                    <h1>Gauri Harbola</h1><hr />
                     <h5>LIFE OF A SEO ENTHUSIAST, CONTENT LOVER!
                         SPREADING POSITIVE VIBES THROUGH WORDS<br />
                         If you’re looking for SEO, fashion/grooming, travel and lifestyle tips, then you’re definitely at the right place. 

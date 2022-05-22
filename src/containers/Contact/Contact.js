@@ -1,7 +1,8 @@
 import React from 'react';
 import './Contact.scss';
 import {Form, Button, Container, Row} from 'react-bootstrap';
-import {BsInstagram, BsFacebook} from 'react-icons/bs';
+import {BsInstagram} from 'react-icons/bs';
+import { GrMail } from 'react-icons/gr';
 import {GrDocumentUser} from 'react-icons/gr'
 import { database } from '../../firebase';
 import { ref, push } from "firebase/database";
@@ -55,7 +56,7 @@ const Contact = () => {
             </Container>
             <div className="social">
                 <a href="https://www.instagram.com/gauriharbola/" target="_blank" rel="noreferrer"><BsInstagram size="30px" /></a>
-                <a href="https://www.instagram.com/gauriharbola/" target="_blank" rel="noreferrer"><BsFacebook size="30px" /></a>
+                <a href="mailto:gauri.harbola17@gmail.com" target="_blank" rel="noreferrer"><GrMail size="30px" /></a>
                 <a href='https://drive.google.com/file/d/1vNmh1JfiLNmcb5UgV5d2abFHhTXobBO-/view?usp=sharing' target="_blank" rel="noreferrer" ><GrDocumentUser size="30px" /></a>
             </div>
         </div>

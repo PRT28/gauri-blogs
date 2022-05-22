@@ -34,7 +34,6 @@ const Header = () => {
         <div className="head">
             <Navbar fixed="top"  bg="dark" variant="dark">
                 <Container fluid>
-                <Navbar.Brand href="/">Gauri-Blogs</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href='/about'>About</Nav.Link>
                     <Nav.Link href='/contact'>Contact</Nav.Link>
