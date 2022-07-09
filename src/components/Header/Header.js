@@ -34,21 +34,12 @@ const Header = () => {
         <div className="head">
             <Navbar fixed="top"  bg="dark" variant="dark">
                 <Container fluid>
+                <Navbar.Brand href="/">Gauri Harbola</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href='/about'>About</Nav.Link>
                     <Nav.Link href='/contact'>Contact</Nav.Link>
                 </Nav>
                 <Nav className="me-auto">
-                {!location.pathname.includes("admin") && <Form className="d-flex  ">
-                    <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    onChange={handleChange}
-                    />
-                    <Button onClick={() => handleSearch()} variant="outline-light"><BsSearch /></Button>
-                </Form>}
                 </Nav>
                 <Button variant="dark" onClick={handleShow} className="me-2">
                     <GiHamburgerMenu />
@@ -72,7 +63,6 @@ const Header = () => {
                         <Nav.Link href='/category/health-and-fitness'>Health And Fitness</Nav.Link>
                         <Nav.Link href='/category/lifestyle'>Lifestyle</Nav.Link>
                         <Nav.Link href='/category/parenting'>Parenting</Nav.Link>
-                        {window.sessionStorage.getItem("token") === null  ? <Nav.Link href='/admin/login'>Admin Login</Nav.Link> : <Nav.Link href='/admin/add'>Admin Panel</Nav.Link> }
                         </>
                     }
                 </Nav>

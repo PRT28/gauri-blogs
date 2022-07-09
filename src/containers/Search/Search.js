@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Search.scss';
-import Card from '../../components/Card/Card';
+import Post from '../../components/Post/Post';
 import { database } from '../../firebase';
 import { ref, onValue  } from "firebase/database";
+import {Spinner} from 'react-bootstrap';
+
 
 const Search = () => {
     const { filter } = useParams();
@@ -27,8 +29,11 @@ const Search = () => {
                 <div className="card-wrapper">
                 {
                     blogs.map((d,index)=> 
-                        <Card head={d.title} sub={d.sub} im={d.image} id={d.id} />
+                        <Post head={d.title} sub={d.sub} im={d.image} id={d.id} />
                         )
+                }
+                {
+                    blogs.length === 0 && <Spinner animation="border"  />
                 }
                 </div>
             </div>);
@@ -39,8 +44,11 @@ const Search = () => {
                 <div className="card-wrapper">
                 {
                     blogs.map((d,index)=> 
-                        d.title.includes(filter) && <Card head={d.title} sub={d.sub} im={d.image} id={d.id} />
+                        d.title.includes(filter) && <Post head={d.title} sub={d.sub} im={d.image} id={d.id} />
                         )
+                }
+                {
+                    blogs.length === 0 && <Spinner animation="border"  />
                 }
                 </div>
             </div>);

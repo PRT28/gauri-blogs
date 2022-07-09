@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import './Category.scss'
-import Card from '../../components/Card/Card';
+import Post from '../../components/Post/Post';
 import { database } from '../../firebase';
 import { ref, onValue } from "firebase/database";
+import {Spinner} from 'react-bootstrap';
 
 
 const Category = props => {
@@ -29,8 +30,11 @@ const Category = props => {
                 <div className="card-wrapper">
                 {
                     blogs.map((d,index)=> 
-                        <Card head={d.title} sub={d.sub} im={d.image} id={d.id} />
+                        <Post head={d.title} sub={d.sub} im={d.image} id={d.id} />
                         )
+                }
+                {
+                    blogs.length === 0 && <Spinner animation="border"  />
                 }
                 </div>
             </div>
@@ -42,8 +46,11 @@ const Category = props => {
                 <div className="card-wrapper">
                 {
                     blogs.map((d,index)=> 
-                        d.category===category && <Card head={d.title} sub={d.sub} im={d.image} id={d.id} />
+                        d.category===category && <Post head={d.title} sub={d.sub} im={d.image} id={d.id} />
                         )
+                }
+                {
+                    blogs.length === 0 && <Spinner animation="border"  />
                 }
                 </div>
             </div>

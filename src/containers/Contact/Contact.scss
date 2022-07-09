@@ -1,14 +1,6 @@
 .contact {
-    height: 80%;
-    width: 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
     padding: 20px;
     border-radius: 7px;
-    box-shadow: 0px 0px 50px rgba(0,0,0,0.8);
     text-align: center;
 
     .social{
@@ -16,7 +8,9 @@
         display: flex;
         justify-content: space-between;
         width: 50%;
-        margin-left: 180px;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
 
         a{
             color: black;
