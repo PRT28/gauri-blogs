@@ -3,6 +3,7 @@ import './Blog.scss';
 import { useParams } from 'react-router-dom';
 import { database } from '../../firebase';
 import { ref, onValue } from "firebase/database";
+import ReactMarkdown from 'react-markdown'
 
 const Blog = () => {
     const [data, setData] = useState({});
@@ -22,7 +23,9 @@ const Blog = () => {
             <div className='sub'>{data.sub}</div>
             <hr />
             <div className='text'>
-                {data.content}
+                <ReactMarkdown> 
+                    {data.content}
+                </ReactMarkdown>
             </div>
         </div>
         <br />

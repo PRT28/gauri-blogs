@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Add.scss';
 import {Form, Button, Row, Container} from 'react-bootstrap';
 import { ref, push } from "firebase/database";
 import {database} from '../../../firebase';
+import MDEditor from '@uiw/react-md-editor';
 
 const Add = () => {
+    const [value, setValue] = useState('');
 
 
     function imageExists(image_url){
@@ -20,7 +22,7 @@ const Add = () => {
 
     const submitHanlder = e => {
         e.preventDefault();
-        const data= {title: e.target[0].value, sub: e.target[1].value, image: e.target[2].value, content: e.target[3].value, editor: e.target[4].checked, category: e.target[5].value};
+        const data= {title: e.target[0].value, sub: e.target[1].value, image: e.target[2].value, content: value, editor: e.target[4].checked, category: e.target[5].value};
         if(imageExists(data.image)){
             push(ref(database, 'blogs'), data)
                 .then(alert("Blog Successfully Added"))
@@ -61,7 +63,11 @@ const Add = () => {
                     <Row>
                     <Form.Group className="mb-3" controlId="content">
                         <Form.Label>Blog Content</Form.Label>
-                        <Form.Control as="textarea" rows={10} />
+                        <MDEditor
+                            value={value}
+                            onChange={setValue}
+                        />
+                        <MDEditor.Markdown source={value} style={{ whiteSpace: 'pre-wrap' }} />
                     </Form.Group>
                     </Row>
                     <Row>

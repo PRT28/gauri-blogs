@@ -4,10 +4,12 @@ import {Form, Button, Row, Container, Spinner} from 'react-bootstrap';
 import { ref, set, onValue } from "firebase/database";
 import {database} from '../../../firebase';
 import { useParams, useNavigate } from 'react-router-dom';
+import MDEditor from '@uiw/react-md-editor';
 
 const Blogedit = () => {
 
     const [data, setData] = useState({});
+    const [value, setValue] = useState('');
     const nav= useNavigate();
     function imageExists(image_url){
 
@@ -29,7 +31,7 @@ const Blogedit = () => {
 
     const submitHanlder = e => {
         e.preventDefault();
-        const data= {title: e.target[0].value, sub: e.target[1].value, image: e.target[2].value, content: e.target[3].value, editor: e.target[4].checked, category: e.target[5].value};
+        const data= {title: e.target[0].value, sub: e.target[1].value, image: e.target[2].value, content: value, editor: e.target[4].checked, category: e.target[5].value};
         if(imageExists(data.image)) {
             set(ref(database, 'blogs/'+id), data)
             .then(() => {
@@ -76,7 +78,11 @@ const Blogedit = () => {
                         <Row>
                         <Form.Group className="mb-3" controlId="content">
                             <Form.Label>Blog Content</Form.Label>
-                            <Form.Control defaultValue={data.content} as="textarea" rows={10} />
+                            <MDEditor
+                                value={value}
+                                onChange={setValue}
+                            />
+                            <MDEditor.Markdown source={value} style={{ whiteSpace: 'pre-wrap' }} />
                         </Form.Group>
                         </Row>
                         <Row>
