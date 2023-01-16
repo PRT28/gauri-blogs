@@ -22,7 +22,8 @@ const Add = () => {
 
     const submitHanlder = e => {
         e.preventDefault();
-        const data= {title: e.target[0].value, sub: e.target[1].value, image: e.target[2].value, content: value, editor: e.target[4].checked, category: e.target[5].value};
+        const data= {title: e.target[0].value, sub: e.target[1].value, meta: e.target[2].value , image: e.target[3].value, content: value, editor: e.target[4].checked, category: e.target[5].value};
+        console.log(data);
         if(imageExists(data.image)){
             push(ref(database, 'blogs'), data)
                 .then(alert("Blog Successfully Added"))
@@ -55,19 +56,15 @@ const Add = () => {
                     </Form.Group>
                     </Row>
                     <Row>
-                    <Form.Group className="mb-3" controlId="image">
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Image Link of your Blog" />
+                    <Form.Group className="mb-3" controlId="title">
+                        <Form.Label>Meta Description</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Meta" />
                     </Form.Group>
                     </Row>
                     <Row>
-                    <Form.Group className="mb-3" controlId="content">
-                        <Form.Label>Blog Content</Form.Label>
-                        <MDEditor
-                            value={value}
-                            onChange={setValue}
-                        />
-                        <MDEditor.Markdown source={value} style={{ whiteSpace: 'pre-wrap' }} />
+                    <Form.Group className="mb-3" controlId="image">
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Image Link of your Blog" />
                     </Form.Group>
                     </Row>
                     <Row>
@@ -92,7 +89,15 @@ const Add = () => {
                     </Form.Group>
                     </Row>
                     <Row>
-                    <Button variant="primary" type="submit">
+                    <Row>
+                        <Form.Label>Blog Content</Form.Label>
+                        <MDEditor
+                            value={value}
+                            onChange={setValue}
+                        />
+                        <MDEditor.Markdown source={value} style={{ whiteSpace: 'pre-wrap' }} />
+                    </Row>
+                    <Button variant="primary" type="submit" style={{marginTop: '20px'}}>
                         Submit
                     </Button>
                     </Row>
