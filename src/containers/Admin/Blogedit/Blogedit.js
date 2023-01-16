@@ -26,6 +26,7 @@ const Blogedit = () => {
     useEffect( () => {
         onValue(ref(database, "blogs/"+id), snapshot => {
             setData(snapshot.val());
+            setValue(snapshot.val().content)
         })
     });
 
